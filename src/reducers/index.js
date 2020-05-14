@@ -1,11 +1,11 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 import game from './game';
 import targets from './targets';
 
 const reducers = combineReducers({
-  game,
-  targets
+    game,
+    targets
 });
 
 export default reducers;
