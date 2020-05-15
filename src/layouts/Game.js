@@ -10,11 +10,12 @@ const mapStateToProps = state => ({
     lives: state.game.lives,
     score: state.game.score,
     isStarted: state.game.isStarted,
+    killSpree: state.game.killSpree,
     scoreMultiplier: state.game.scoreMultiplier,
     targets: state.targets
 });
 
-const GameLayout = ({isStarted, lives, score, targets, dispatch}) => (
+const GameLayout = ({isStarted, lives, score, killSpree, targets, dispatch}) => (
     <div
         style={{
             position: 'fixed',
@@ -30,8 +31,8 @@ const GameLayout = ({isStarted, lives, score, targets, dispatch}) => (
     >
         {isStarted ? (
             <React.Fragment>
-                <Info lives={lives} score={score}/>
-                {targets.map((target, index) => (<Target x={target.x} y={target.y} value={3} onClick={() => dispatch({type: 'TARGET_CLICKED', id: index})} key={'target-' + index}/>))}
+                <Info lives={lives} score={score} killSpree={killSpree}/>
+                {targets.map(target => (<Target x={target.x} y={target.y} value={target.value} onClick={() => dispatch({type: 'TARGET_CLICKED', id: target.id})} key={'target-' + target.id}/>))}
                 <ButtonStop onClick={ () => dispatch({type: 'GAME_STOP_REQUESTED'}) }/>
             </React.Fragment>
         ) : (

@@ -1,5 +1,5 @@
-import {take, select, put, call, fork, cancel} from "redux-saga/effects";
-import spawnTargetsSaga from "../sagas/spawnTargetsSaga";
+import {call, cancel, fork, put, take} from "redux-saga/effects";
+import spawnTargetsSaga from "./spawnTargetsSaga";
 
 function* startGame() {
     yield put({ type: 'GAME_START' });

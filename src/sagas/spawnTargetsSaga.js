@@ -1,4 +1,4 @@
-import {take, select, put, call,} from "redux-saga/effects";
+import {put} from "redux-saga/effects";
 import {delay} from "redux-saga";
 
 let TIME_INTERVAL = 1000;
